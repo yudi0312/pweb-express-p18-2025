@@ -10,7 +10,6 @@ import { authenticate } from "../middleware/auth.middleware";
 
 const router = Router();
 
-// hanya user login yang bisa create/update/delete genre
 router.post("/", authenticate, createGenre);
 router.get("/", getAllGenres);
 router.get("/:genre_id", getGenreDetail);

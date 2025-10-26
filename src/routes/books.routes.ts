@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   createBook,
   getAllBooks,
+  getBooksByGenre,
   getBookDetail,
   updateBook,
   deleteBook,
@@ -13,6 +14,7 @@ const router = Router();
 // Hanya user login yang boleh tambah / edit / hapus buku
 router.post("/", authenticate, createBook);
 router.get("/", getAllBooks);
+router.get("/genre/:genre_id", getBooksByGenre);
 router.get("/:book_id", getBookDetail);
 router.patch("/:book_id", authenticate, updateBook);
 router.delete("/:book_id", authenticate, deleteBook);

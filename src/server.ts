@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config(); // supaya bisa baca file .env
+dotenv.config();
 
 import app from "./app";
 import prisma from "./prisma";
@@ -10,7 +10,6 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
 
-// tutup koneksi prisma saat server dihentikan
 process.on("SIGINT", async () => {
   await prisma.$disconnect();
   process.exit(0);
